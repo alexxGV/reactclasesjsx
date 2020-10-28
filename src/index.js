@@ -1,12 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import App from './components/App/App';
 import reportWebVitals from './reportWebVitals';
+import PrimeraClase from './components/PrimeraClase/PrimeraClase'
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <PrimeraClase />
   </React.StrictMode>,
   document.getElementById('root')
 );
