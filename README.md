@@ -2,6 +2,12 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## RECUPERAR node_modules
+
+Para poder crear los node_modules, dado que no lo subimos en el proyecto por su peso tan pesado
+
+### `npm i`
+
 ## Available Scripts
 
 In the project directory, you can run:

@@ -4,10 +4,17 @@ import './index.css';
 import App from './components/App/App';
 import reportWebVitals from './reportWebVitals';
 import PrimeraClase from './components/PrimeraClase/PrimeraClase'
+import Deportes from './components/Deportes/Deportes'
+import Numeros from './components/Numeros/Numeros'
+import Comics from './components/Comics/Comics'
 
 ReactDOM.render(
   <React.StrictMode>
-    <PrimeraClase />
+    {/* <PrimeraClase titulo="Componente 1" iniciar="16" />
+    <PrimeraClase titulo="Componente 2" iniciar="99" /> */}
+    {/* <Deportes /> */}
+    {/* <Numeros /> */}
+    <Comics />
   </React.StrictMode>,
   document.getElementById('root')
 );
