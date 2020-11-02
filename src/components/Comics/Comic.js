@@ -10,7 +10,10 @@ class Comic extends Component {
                 <button onClick={() => {
                     this.props.seleccionarComic(this.props.comic)
                 }}>Favorito</button>
-                <hr />
+                <button style={{ backgroundColor: "red" }}
+                    onClick={() => {
+                        this.props.eliminarComic(this.props.index)
+                    }}>Eliminar</button>
             </div>
         )
     }

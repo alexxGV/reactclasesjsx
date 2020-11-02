@@ -7,6 +7,8 @@ import PrimeraClase from './components/PrimeraClase/PrimeraClase'
 import Deportes from './components/Deportes/Deportes'
 import Numeros from './components/Numeros/Numeros'
 import Comics from './components/Comics/Comics'
+import EjemploSimple from './components/Formularios/EjemploSimple';
+import Collatz from './components/Formularios/Collatz';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -15,6 +17,9 @@ ReactDOM.render(
     {/* <Deportes /> */}
     {/* <Numeros /> */}
     <Comics />
+    <App />
+    <EjemploSimple />
+    <Collatz />
   </React.StrictMode>,
   document.getElementById('root')
 );

@@ -51,20 +51,66 @@ class Comics extends Component {
         })
     }
 
+    crearComic = () => {
+        var titulo = document.getElementById("cajatitulo").value;
+        var imagen = document.getElementById("cajaimagen").value;
+        var descripcion = document.getElementById("cajadescripcion").value;
+        var comic = {
+            titulo: titulo,
+            imagen: imagen,
+            descripcion: descripcion
+        };
+        var comics = this.state.comics;
+        comics.push(comic);
+        this.setState({
+            comics: comics
+        });
+    }
+
+    eliminarComic = (index) => {
+        //ELIMINARES DE UN ARRAY
+        // Array.splice(indice, elementos a eliminiar)
+        var comics = this.state.comics;
+        comics.splice(index, 1);
+        this.setState({
+            comics: comics,
+            favorito: null
+        });
+    }
+
+    updateComic = (index) => {
+        var titulo = document.getElementById("cajatitulo").value;
+        var imagen = document.getElementById("cajaimagen").value;
+        var descripcion = document.getElementById("cajadescripcion").value;
+
+        var comics = this.state.comics;
+        var comic = comics[index];
+        comic.titulo = titulo;
+        comic.imagen = imagen;
+        comic.descripcion = descripcion;
+        this.setState({
+            comics: comics
+        });
+    }
+
     render() {
         return (
             <div>
-                {this.state.comics.map((comic, index) => {
-                    return (
-                        <Comic comic={comic} key={index} seleccionarComic={this.seleccionarComic} />
-                    )
-                })}
-                {/* CREAR UNA CONDICION EN EL RENDER 
-                    SI NO PONEMOS COMPARACION,VA A MIRAR SI ES NULL
-                */}
+                <div>
+                    <label>Titulo</label>
+                    <input type="text" id="cajatitulo" /><br />
+                    <label>Imagen</label>
+                    <input type="text" id="cajaimagen" /><br />
+                    <label>Descripcion</label>
+                    <input type="text" id="cajadescripcion" /><br />
+                    <button onClick={this.crearComic}>
+                        Nuevo comic
+                    </button>
+                </div>
+                {/* FAVORITO */}
                 {this.state.favorito && (
-                    <div>
-                        <h1 style={{ color: "red" }}>
+                    <div style={{ backgroundColor: "green" }}>
+                        <h1 style={{ color: "Blue" }}>
                             {this.state.favorito.titulo}
                         </h1>
                         <img src={this.state.favorito.imagen} />
@@ -72,6 +118,25 @@ class Comics extends Component {
                     </div>
                 )
                 }
+                {this.state.comics.map((comic, index) => {
+                    return (
+                        <React.Fragment key={index}>
+                            <Comic index={index} comic={comic}
+                                seleccionarComic={this.seleccionarComic}
+                                eliminarComic={this.eliminarComic}
+                                updateComic={this.updateComic} />
+                            <button style={{ backgroundColor: "blue", color: "white" }}
+                                onClick={() => {
+                                    this.updateComic(index)
+                                }}>Modificar</button>
+                            <hr />
+                        </React.Fragment>
+
+                    )
+                })}
+                {/* CREAR UNA CONDICION EN EL RENDER 
+                    SI NO PONEMOS COMPARACION,VA A MIRAR SI ES NULL
+                */}
             </div>
         )
     }
