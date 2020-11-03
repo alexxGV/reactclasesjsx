@@ -9,6 +9,10 @@ import Numeros from './components/Numeros/Numeros'
 import Comics from './components/Comics/Comics'
 import EjemploSimple from './components/Formularios/EjemploSimple';
 import Collatz from './components/Formularios/Collatz';
+import SeleccionSimple from './components/Formularios/SeleccionSimple'
+import SeleccionMultiple from './components/Formularios/SeleccionMultiple';
+import ComicsSeleccionMultiple from './components/Formularios/ComicsSeleccionMultiple';
+import SeleccionComponent from './components/Formularios/SeleccionComponent';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -16,10 +20,14 @@ ReactDOM.render(
     <PrimeraClase titulo="Componente 2" iniciar="99" /> */}
     {/* <Deportes /> */}
     {/* <Numeros /> */}
-    <Comics />
-    <App />
-    <EjemploSimple />
-    <Collatz />
+    {/* <Comics /> */}
+    {/* <App /> */}
+    {/* <EjemploSimple /> */}
+    {/* <Collatz /> */}
+    {/* <SeleccionSimple /> */}
+    {/* <SeleccionMultiple /> */}
+    <SeleccionComponent />
+    <ComicsSeleccionMultiple />
   </React.StrictMode>,
   document.getElementById('root')
 );

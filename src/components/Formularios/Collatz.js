@@ -5,35 +5,32 @@ export default class Collatz extends Component {
 
     //NECESITO EL STATE PARA PODER REPRESENTARLO EN LA PANTALLA
     state = {
-        numeros: ""
+        lista: []
     }
 
     calculo = (e) => {
         e.preventDefault();
-        console.log(this.numero.current.value);
-        var numero = this.numero.current.value;
+        var numero = parseInt(this.numero.current.value);
+        //VARIABLE PARA ASIGNAR CADA LI
+        var datos = [];
+
+        //CADA ELEMENTO DEBE TENER UN KEY DIFERENTE
+        var contador = 1;
+
         while (numero != 1) {
             if (numero % 2 == 0) {
                 numero = numero / 2;
             } else {
                 numero = numero * 3 + 1;
             }
-            var numeros = this.state.numeros;
-            console.log("Numeros guardado en state: " + numeros)
 
-            if (numeros == "") {
-                console.log("Numero dentro de vacio: " + numero);
-                this.setState({
-                    numeros: numero
-                });
-            } else {
-                this.setState({
-                    numeros: this.state.numeros + ", " + numero
-                });
-                console.log("Numero en el else: " + numero);
-            }
+            var lista = this.state.lista;
+            lista.push(<li key={contador}>{numero}</li>)
+            contador++;
 
-            console.log("Numero guardado" + this.state.numeros);
+            this.setState({
+                lista: lista
+            })
         }
     }
 
@@ -44,10 +41,10 @@ export default class Collatz extends Component {
                     <label htmlFor="numero">Numero: </label>
                     <input type="number" ref={this.numero} name="numero" />
                     <button>Hacer calculo</button>
-                    {this.state.numeros &&
-                        <h2 style={{ color: "blue" }}>
-                            {this.state.numeros}
-                        </h2>
+                    {this.state.lista &&
+                        <ul>
+                            {this.state.lista}
+                        </ul>
                     }
                 </form>
             </div>
